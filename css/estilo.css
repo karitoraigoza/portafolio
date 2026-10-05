@@ -105,8 +105,11 @@ header {
 }
 
 .logo img {
-    height: 40px;
-    border-radius: 5px;
+    display: block;
+    width: 350px;
+    height: 72px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .menu {
@@ -468,18 +471,25 @@ footer {
 
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
+    .logo img {
+        width: 290px;
+        height: 58px;
+    }
+
     /* Mostrar el botón hamburguesa y asegurar que esté a la derecha */
     .menu-toggle {
         display: flex;
-        margin-left: auto; 
+        margin-left: auto;
     }
 
     /* Convertir el menú en un panel desplegable que entra por la DERECHA */
     .menu {
         position: fixed;
         top: 0;
-        right: -100%; /* Oculto fuera de la pantalla a la derecha */
-        left: auto;   /* Anulamos cualquier posicionamiento izquierdo */
+        right: -100%;
+        /* Oculto fuera de la pantalla a la derecha */
+        left: auto;
+        /* Anulamos cualquier posicionamiento izquierdo */
         width: 80%;
         max-width: 300px;
         height: 100vh;
@@ -488,8 +498,10 @@ footer {
         justify-content: center;
         align-items: center;
         gap: 40px;
-        box-shadow: -10px 0 20px rgba(0,0,0,0.1); /* Sombra hacia la izquierda */
-        transition: right 0.4s ease; /* Animación ahora en 'right' */
+        box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
+        /* Sombra hacia la izquierda */
+        transition: right 0.4s ease;
+        /* Animación ahora en 'right' */
         z-index: 999;
     }
 
@@ -498,13 +510,34 @@ footer {
         right: 0;
     }
 
-    .hero h1 { font-size: 2.2rem; }
-    .galeria-container { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-    .galeria-item { height: 150px; }
-    .lightbox-prev, .lightbox-next { font-size: 20px; padding: 12px; }
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .galeria-container {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .galeria-item {
+        height: 150px;
+    }
+
+    .lightbox-prev,
+    .lightbox-next {
+        font-size: 20px;
+        padding: 12px;
+    }
 
     /* Animación del ícono hamburguesa convirtiéndose en "X" */
-    .menu-toggle.is-active .bar:nth-child(2) { opacity: 0; }
-    .menu-toggle.is-active .bar:nth-child(1) { transform: translateY(9px) rotate(45deg); }
-    .menu-toggle.is-active .bar:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+    .menu-toggle.is-active .bar:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.is-active .bar:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.is-active .bar:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
 }
